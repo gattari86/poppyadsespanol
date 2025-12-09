@@ -816,7 +816,7 @@
                     HERRAMIENTA INTERACTIVA
                 </div>
                 <h2 class="text-3xl sm:text-4xl lg:text-5xl font-poppins font-bold mb-4">
-                    Calculate Your ROI Potencial
+                    Calcula tu ROI Potencial
                 </h2>
                 <p class="text-lg sm:text-xl text-blue-100 max-w-2xl mx-auto">
                     Vea exactamente lo que Google Ads podría generar para su negocio en los próximos 6 meses.
@@ -1118,7 +1118,7 @@
         <div class="container-custom">
             <div class="text-center mb-12 lg:mb-16">
                 <h2 class="text-3xl sm:text-4xl lg:text-5xl font-poppins font-bold text-gray-900 mb-4">
-                    Gestión Mensual Tiers
+                    Paquetes de Gestión Mensual
                 </h2>
                 <p class="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
                     Tu tarifa de gestión se basa en tu presupuesto mensual de publicidad. Más presupuesto = más optimización requerida.
@@ -1128,7 +1128,7 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
                 <!-- Tier 1 -->
                 <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-md card-hover">
-                    <h3 class="text-xl sm:text-2xl font-poppins font-bold text-gray-900 mb-2">Starter</h3>
+                    <h3 class="text-xl sm:text-2xl font-poppins font-bold text-gray-900 mb-2">Lanzamiento</h3>
                     <div class="mb-4">
                         <p class="text-3xl font-bold text-blue-600">$600</p>
                         <p class="text-gray-600 text-sm">/mes</p>
@@ -1191,7 +1191,7 @@
 
                 <!-- Tier 3 -->
                 <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-md card-hover">
-                    <h3 class="text-xl sm:text-2xl font-poppins font-bold text-gray-900 mb-2">Scale</h3>
+                    <h3 class="text-xl sm:text-2xl font-poppins font-bold text-gray-900 mb-2">Escala</h3>
                     <div class="mb-4">
                         <p class="text-3xl font-bold text-blue-600">$1,400</p>
                         <p class="text-gray-600 text-sm">/mes</p>
@@ -1219,7 +1219,7 @@
 
                 <!-- Tier 4 -->
                 <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-md card-hover">
-                    <h3 class="text-xl sm:text-2xl font-poppins font-bold text-gray-900 mb-2">Enterprise</h3>
+                    <h3 class="text-xl sm:text-2xl font-poppins font-bold text-gray-900 mb-2">Empresa</h3>
                     <div class="mb-4">
                         <p class="text-3xl font-bold text-blue-600">Custom</p>
                         <p class="text-gray-600 text-sm">/mes</p>
@@ -1592,16 +1592,16 @@
             // Convert to monthly if daily
             const monthlySpend = budgetPeriod === 'daily' ? adSpend * 30 : adSpend;
 
-            let tier = 'Starter';
+            let tier = 'Lanzamiento';
             let fee = 600;
             let description = 'Optimización semanal, reportes quincenales, soporte por correo';
 
             if (monthlySpend >= 7500) {
-                tier = 'Enterprise';
+                tier = 'Empresa';
                 fee = 'Custom';
                 description = 'Servicio premium personalizado, gerente de cuenta dedicado, panel personalizado';
             } else if (monthlySpend >= 3501) {
-                tier = 'Scale';
+                tier = 'Escala';
                 fee = 1400;
                 description = 'Todo en Crecimiento, más orientación avanzada y monitoreo de competidores';
             } else if (monthlySpend >= 1501) {
