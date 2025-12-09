@@ -1,0 +1,5 @@
+{
+  "buildCommand": "# Static site",
+  "outputDirectory": ".",
+  "framework": "html"
+}
