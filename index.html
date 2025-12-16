@@ -374,6 +374,59 @@
                 padding-right: 2rem;
             }
         }
+
+        /* Results ticker animation */
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        .stat-pulse {
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        /* Comparison table mobile fixes */
+        @media (max-width: 640px) {
+            .comparison-table-mobile .grid {
+                gap: 0.5rem;
+            }
+            .comparison-table-mobile .p-4 {
+                padding: 0.75rem;
+            }
+        }
+
+        /* 90-day ROI section mobile adjustments */
+        @media (max-width: 640px) {
+            .roi-investment-grid .grid-cols-3 {
+                grid-template-columns: 1fr;
+                gap: 0.75rem;
+            }
+            .roi-returns-grid .grid-cols-4 {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.5rem;
+            }
+        }
+
+        /* Founder quote card */
+        .founder-quote {
+            position: relative;
+        }
+        .founder-quote::before {
+            content: '\201C';
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            font-size: 4rem;
+            color: rgba(37, 99, 235, 0.1);
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        /* Hero image circle for founder */
+        .founder-hero-image {
+            object-fit: cover;
+            object-position: center top;
+        }
     </style>
 </head>
 <body class="bg-white font-raleway text-gray-900 antialiased">
@@ -419,8 +472,9 @@
         <div class="container-custom">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
                 <div class="space-y-8">
-                    <!-- Trust Badge -->
-                    <div>
+                    <!-- Trust Badge with Founder Photo -->
+                    <div class="flex items-center gap-4">
+                        <img src="./images/ricardobrown.png" alt="Ricardo Gattas-Moras" class="w-14 h-14 sm:w-16 sm:h-16 rounded-full border-2 border-green-400 founder-hero-image shadow-lg">
                         <div class="trust-badge inline-flex">
                             <i class="ph-fill ph-check-circle text-lg"></i>
                             <span>Anuncios Activos en 48-72 Horas</span>
@@ -429,10 +483,13 @@
 
                     <div class="space-y-6">
                         <h1 class="text-4xl sm:text-5xl lg:text-6xl font-poppins font-bold leading-tight">
-                            Google Ads + Página de Destino. Bien Hecho.
+                            Negocios de Servicios en Houston: Obtenga 15-30+ Clientes Potenciales Calificados/Mes con Google Ads
                         </h1>
+                        <p class="text-xl sm:text-2xl font-semibold text-green-400">
+                            O Trabajamos Gratis Hasta Que Lo Logre.
+                        </p>
 
-                        <!-- Hero Image - Unlock Su Negocio Potential -->
+                        <!-- Hero Image - Mobile Only -->
                         <div class="rounded-2xl overflow-hidden shadow-xl lg:hidden">
                             <img src="./images/google-ads/02_landing_page_mockup.jpg" alt="Desbloquee el potencial de su negocio con gestión profesional de Google Ads" class="w-full" loading="eager">
                         </div>
@@ -543,6 +600,37 @@
         </div>
     </section>
 
+    <!-- RESULTS TICKER / STAT BAR -->
+    <section class="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 py-4 sm:py-6 overflow-hidden">
+        <div class="container-custom">
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 lg:gap-16 text-white">
+                <div class="flex items-center gap-3">
+                    <i class="ph-fill ph-trend-up text-3xl sm:text-4xl text-green-400"></i>
+                    <div class="text-center sm:text-left">
+                        <p class="text-2xl sm:text-3xl font-bold">5X</p>
+                        <p class="text-xs sm:text-sm text-blue-100">Más Leads vs. Campañas DIY</p>
+                    </div>
+                </div>
+                <div class="hidden sm:block w-px h-12 bg-blue-400"></div>
+                <div class="flex items-center gap-3">
+                    <i class="ph-fill ph-clock text-3xl sm:text-4xl text-green-400"></i>
+                    <div class="text-center sm:text-left">
+                        <p class="text-2xl sm:text-3xl font-bold">48-72 hrs</p>
+                        <p class="text-xs sm:text-sm text-blue-100">Anuncios Activos</p>
+                    </div>
+                </div>
+                <div class="hidden sm:block w-px h-12 bg-blue-400"></div>
+                <div class="flex items-center gap-3">
+                    <i class="ph-fill ph-currency-dollar text-3xl sm:text-4xl text-green-400"></i>
+                    <div class="text-center sm:text-left">
+                        <p class="text-2xl sm:text-3xl font-bold">114%</p>
+                        <p class="text-xs sm:text-sm text-blue-100">ROI Promedio 90 Días</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ES PARA USTED SECTION -->
     <section id="qualification" class="section-padding bg-white">
         <div class="container-custom">
@@ -596,35 +684,92 @@
         </div>
     </section>
 
-    <!-- SKEPTIC SECTION -->
+    <!-- WHY YOUR LAST AGENCY FAILED SECTION -->
     <section id="skeptic" class="section-padding bg-gray-50">
         <div class="container-custom">
-            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-poppins font-bold text-gray-900 mb-6 text-center max-w-4xl mx-auto">
-                "Probé Google Ads antes. No funcionó."
-            </h2>
+            <div class="text-center mb-12 lg:mb-16">
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-poppins font-bold text-gray-900 mb-4">
+                    Por Qué Su Última Agencia Falló
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    (Y Cómo Somos Diferentes)
+                </p>
+            </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center mt-12">
+            <!-- Comparison Table -->
+            <div class="max-w-4xl mx-auto mb-12">
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+                    <!-- Table Header -->
+                    <div class="grid grid-cols-2 bg-gradient-to-r from-red-500 to-red-600">
+                        <div class="p-4 sm:p-6 text-white font-bold text-center border-r border-red-400">
+                            <i class="ph-fill ph-x-circle text-2xl mb-2 block"></i>
+                            <span class="text-sm sm:text-base">Lo Que Falló Antes</span>
+                        </div>
+                        <div class="p-4 sm:p-6 text-white font-bold text-center bg-gradient-to-r from-green-500 to-green-600">
+                            <i class="ph-fill ph-check-circle text-2xl mb-2 block"></i>
+                            <span class="text-sm sm:text-base">Cómo Lo Arreglamos</span>
+                        </div>
+                    </div>
+                    <!-- Table Rows -->
+                    <div class="grid grid-cols-2 border-b border-gray-100">
+                        <div class="p-4 sm:p-6 text-gray-700 text-sm sm:text-base border-r border-gray-100 flex items-center gap-3">
+                            <i class="ph-fill ph-x text-red-500 flex-shrink-0"></i>
+                            <span>Enviaron tráfico a página de inicio</span>
+                        </div>
+                        <div class="p-4 sm:p-6 text-gray-700 text-sm sm:text-base flex items-center gap-3">
+                            <i class="ph-fill ph-check text-green-500 flex-shrink-0"></i>
+                            <span><strong>Página de destino dedicada</strong> con UN objetivo</span>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 border-b border-gray-100 bg-gray-50">
+                        <div class="p-4 sm:p-6 text-gray-700 text-sm sm:text-base border-r border-gray-100 flex items-center gap-3">
+                            <i class="ph-fill ph-x text-red-500 flex-shrink-0"></i>
+                            <span>Revisaban campañas semanalmente</span>
+                        </div>
+                        <div class="p-4 sm:p-6 text-gray-700 text-sm sm:text-base flex items-center gap-3">
+                            <i class="ph-fill ph-check text-green-500 flex-shrink-0"></i>
+                            <span><strong>Optimización diaria</strong> + pruebas con IA</span>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 border-b border-gray-100">
+                        <div class="p-4 sm:p-6 text-gray-700 text-sm sm:text-base border-r border-gray-100 flex items-center gap-3">
+                            <i class="ph-fill ph-x text-red-500 flex-shrink-0"></i>
+                            <span>Texto de anuncio genérico</span>
+                        </div>
+                        <div class="p-4 sm:p-6 text-gray-700 text-sm sm:text-base flex items-center gap-3">
+                            <i class="ph-fill ph-check text-green-500 flex-shrink-0"></i>
+                            <span><strong>20+ variaciones probadas</strong> por campaña</span>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2">
+                        <div class="p-4 sm:p-6 text-gray-700 text-sm sm:text-base border-r border-gray-100 flex items-center gap-3 bg-gray-50">
+                            <i class="ph-fill ph-x text-red-500 flex-shrink-0"></i>
+                            <span>Sin seguimiento de llamadas</span>
+                        </div>
+                        <div class="p-4 sm:p-6 text-gray-700 text-sm sm:text-base flex items-center gap-3 bg-gray-50">
+                            <i class="ph-fill ph-check text-green-500 flex-shrink-0"></i>
+                            <span><strong>Atribución completa</strong> en cada lead</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
                 <div class="space-y-6">
-                    <p class="text-xl font-semibold text-green-600 leading-relaxed">
-                        Si encontró esta página, Google Ads funcionó en usted.
-                    </p>
-                    <p class="text-base sm:text-lg text-gray-600 leading-relaxed">
-                        El problema no fue la plataforma. Fue la ejecución. La mayoría de las agencias envían tráfico costoso a una página de inicio confusa con 12 llamadas a la acción diferentes. Nosotros no hacemos eso. Construimos una página de destino dedicada con UN objetivo: hacer sonar el teléfono. Luego usamos IA para probar lo que funciona 10 veces más rápido que las agencias tradicionales.
-                    </p>
                     <div class="bg-white border-l-4 border-blue-600 p-6 rounded-lg shadow-sm">
                         <p class="text-base sm:text-lg font-semibold text-gray-900 flex items-start gap-3">
                             <i class="ph ph-check-bold text-2xl text-blue-600 flex-shrink-0"></i>
                             <span>Google Ads funciona cuando se hace bien. Así es como lo hacemos bien.</span>
                         </p>
                     </div>
+                    <p class="text-base sm:text-lg text-gray-600 leading-relaxed">
+                        El problema no fue la plataforma—fue la ejecución. La mayoría de las agencias envían tráfico costoso a una página de inicio confusa con 12 llamadas a la acción diferentes. Nosotros construimos una página de destino dedicada con UN objetivo: hacer sonar el teléfono.
+                    </p>
                 </div>
 
                 <div class="space-y-6">
                     <div class="rounded-2xl overflow-hidden shadow-lg">
                         <img src="./images/google-ads/03_before_after_comparison.jpg" alt="Comparación de rendimiento antes y después de Google Ads" class="w-full" loading="lazy">
-                    </div>
-                    <div class="rounded-2xl overflow-hidden shadow-lg">
-                        <img src="./images/google-ads/04_ai_testing_visualization.jpg" alt="Visualización de pruebas de anuncios con IA" class="w-full" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -876,6 +1021,159 @@
                     <p class="text-sm text-green-200 mt-2">
                         Estamos seguros de nuestro trabajo porque lo hemos hecho para empresas Fortune 500.
                     </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 90-DAY META ADS ROI SECTION -->
+    <section id="90-day-roi" class="section-padding bg-gradient-to-br from-purple-900 via-purple-800 to-blue-900 text-white">
+        <div class="container-custom">
+            <div class="text-center mb-12 lg:mb-16">
+                <div class="inline-block bg-purple-500 bg-opacity-30 px-4 py-2 rounded-full text-sm font-bold mb-6 border border-purple-400">
+                    <i class="ph-bold ph-chart-line-up inline-block mr-2"></i>
+                    PROGRAMA DE 90 DÍAS
+                </div>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-poppins font-bold mb-4">
+                    Programa de Meta Ads de 90 Días: Inversión y ROI
+                </h2>
+                <p class="text-lg sm:text-xl text-purple-200 max-w-2xl mx-auto">
+                    Vea exactamente lo que invertirá y lo que obtendrá a cambio
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto">
+                <!-- What You Invest Card -->
+                <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-white border-opacity-20">
+                    <h3 class="text-2xl sm:text-3xl font-poppins font-bold mb-6 flex items-center gap-3">
+                        <i class="ph-fill ph-wallet text-purple-400"></i>
+                        Lo Que Invierte
+                    </h3>
+
+                    <!-- Investment Table -->
+                    <div class="space-y-4 mb-6">
+                        <div class="grid grid-cols-3 gap-4 text-sm font-semibold text-purple-300 pb-2 border-b border-purple-400 border-opacity-30">
+                            <span>Tiempo</span>
+                            <span>Lo Que Paga</span>
+                            <span>Lo Que Incluye</span>
+                        </div>
+                        <div class="grid grid-cols-3 gap-4 text-sm sm:text-base py-2">
+                            <span class="font-semibold">Mes 1</span>
+                            <span class="text-green-400 font-bold">$2,799</span>
+                            <span class="text-purple-200 text-xs sm:text-sm">Setup ($1,299) + Anuncios ($1,500)</span>
+                        </div>
+                        <div class="grid grid-cols-3 gap-4 text-sm sm:text-base py-2 bg-white bg-opacity-5 rounded-lg px-2">
+                            <span class="font-semibold">Mes 2</span>
+                            <span class="text-green-400 font-bold">$2,099</span>
+                            <span class="text-purple-200 text-xs sm:text-sm">Gestión ($599) + Anuncios ($1,500)</span>
+                        </div>
+                        <div class="grid grid-cols-3 gap-4 text-sm sm:text-base py-2">
+                            <span class="font-semibold">Mes 3</span>
+                            <span class="text-green-400 font-bold">$2,099</span>
+                            <span class="text-purple-200 text-xs sm:text-sm">Gestión ($599) + Anuncios ($1,500)</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-purple-600 bg-opacity-30 rounded-xl p-4 sm:p-6 border border-purple-400 border-opacity-30">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="font-semibold">Inversión Total de 90 Días</span>
+                            <span class="text-2xl sm:text-3xl font-bold text-white">$6,997</span>
+                        </div>
+                        <p class="text-purple-200 text-sm">Construcción completa de campaña, optimización continua y $4,500 en gasto publicitario</p>
+                    </div>
+
+                    <div class="mt-4 flex items-center gap-2 text-green-400 text-sm font-semibold">
+                        <i class="ph-fill ph-gift text-lg"></i>
+                        <span>Tarifa de gestión del primer mes exenta—solo paga setup y anuncios</span>
+                    </div>
+                </div>
+
+                <!-- What You Get Back Card -->
+                <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-white border-opacity-20">
+                    <h3 class="text-2xl sm:text-3xl font-poppins font-bold mb-6 flex items-center gap-3">
+                        <i class="ph-fill ph-chart-line-up text-green-400"></i>
+                        Lo Que Obtiene
+                    </h3>
+                    <p class="text-purple-200 text-sm mb-4">Basado en 2% tasa de conversión y $5,000 valor promedio de cliente:</p>
+
+                    <!-- Returns Table -->
+                    <div class="space-y-4 mb-6">
+                        <div class="grid grid-cols-4 gap-2 text-xs sm:text-sm font-semibold text-purple-300 pb-2 border-b border-purple-400 border-opacity-30">
+                            <span>Mes</span>
+                            <span>Leads</span>
+                            <span>Clientes</span>
+                            <span>Ingresos</span>
+                        </div>
+                        <div class="grid grid-cols-4 gap-2 text-sm sm:text-base py-2">
+                            <span class="font-semibold">Mes 1</span>
+                            <span class="text-purple-200">~30</span>
+                            <span class="text-purple-200">1</span>
+                            <span class="text-green-400 font-bold">$5,000</span>
+                        </div>
+                        <div class="grid grid-cols-4 gap-2 text-sm sm:text-base py-2 bg-white bg-opacity-5 rounded-lg px-2">
+                            <span class="font-semibold">Mes 2</span>
+                            <span class="text-purple-200">~30</span>
+                            <span class="text-purple-200">1</span>
+                            <span class="text-green-400 font-bold">$5,000</span>
+                        </div>
+                        <div class="grid grid-cols-4 gap-2 text-sm sm:text-base py-2">
+                            <span class="font-semibold">Mes 3</span>
+                            <span class="text-purple-200">~30</span>
+                            <span class="text-purple-200">1</span>
+                            <span class="text-green-400 font-bold">$5,000</span>
+                        </div>
+                        <div class="grid grid-cols-4 gap-2 text-sm sm:text-base py-3 border-t border-purple-400 border-opacity-30 font-bold">
+                            <span>Total</span>
+                            <span class="text-purple-200">~90</span>
+                            <span class="text-purple-200">3</span>
+                            <span class="text-green-400 text-lg sm:text-xl">$15,000</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ROI Summary Box -->
+            <div class="max-w-4xl mx-auto mt-8">
+                <div class="bg-gradient-to-r from-green-600 to-green-500 rounded-2xl p-6 sm:p-10 shadow-2xl">
+                    <h3 class="text-xl sm:text-2xl font-poppins font-bold mb-6 text-center">Su ROI de 90 Días</h3>
+
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 mb-6">
+                        <div class="text-center">
+                            <p class="text-green-100 text-xs sm:text-sm mb-1">Inversión Total</p>
+                            <p class="text-xl sm:text-2xl font-bold">$6,997</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-green-100 text-xs sm:text-sm mb-1">Ingresos Esperados</p>
+                            <p class="text-xl sm:text-2xl font-bold">$15,000</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-green-100 text-xs sm:text-sm mb-1">Ganancia Neta</p>
+                            <p class="text-xl sm:text-2xl font-bold">$8,003</p>
+                        </div>
+                        <div class="text-center bg-white bg-opacity-20 rounded-xl p-3">
+                            <p class="text-green-100 text-xs sm:text-sm mb-1">ROI</p>
+                            <p class="text-2xl sm:text-4xl font-bold">114%</p>
+                        </div>
+                    </div>
+
+                    <div class="border-t border-green-400 border-opacity-40 pt-6">
+                        <h4 class="font-bold text-lg mb-3">El Resultado Final</h4>
+                        <p class="text-green-50 leading-relaxed text-sm sm:text-base">
+                            Con una tasa de cierre conservadora del 2%, está posicionado para <strong>más que duplicar su inversión</strong> en solo 90 días. Y aquí está lo mejor: si su proceso de ventas convierte al 3-4% (lo cual es totalmente alcanzable con buen seguimiento), estará viendo <strong>5-6 nuevos clientes</strong> y <strong>$25K-$30K en ingresos</strong>.
+                        </p>
+                        <p class="text-green-200 text-sm mt-4 font-semibold">
+                            Esto no es solo generación de leads—es crecimiento predecible y rentable.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- CTA -->
+                <div class="text-center mt-8">
+                    <a href="https://www.poppymarketingandconsulting.com/booking-calendar/discovery-consultation" class="btn-primary inline-flex items-center gap-2 text-lg px-8 py-5 shadow-xl">
+                        <i class="ph-bold ph-calendar-blank text-2xl"></i>
+                        <span>Obtenga Su Proyección de ROI Personalizada</span>
+                    </a>
+                    <p class="text-purple-300 text-sm mt-4">Consulta gratuita de 30 minutos—sin compromiso</p>
                 </div>
             </div>
         </div>
@@ -1406,25 +1704,35 @@
                     <h2 class="text-3xl sm:text-4xl lg:text-5xl font-poppins font-bold text-gray-900">
                         Conozca al Fundador
                     </h2>
-                    <p class="text-lg sm:text-xl text-gray-700 leading-relaxed">
-                        Hola, soy Ricardo — fundador de Poppy Marketing. Después de 17 años liderando marketing en una empresa Fortune 100 (gestionando presupuestos de $5M+), dejé el mundo corporativo para ayudar a pequeños negocios a obtener la misma calidad de estrategia que tienen las grandes empresas.
-                    </p>
-                    <p class="text-lg sm:text-xl text-gray-700 leading-relaxed">
-                        Estoy ubicado aquí mismo en Katy, y sí, contesto mi propio teléfono.
-                    </p>
+                    <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-lg border-l-4 border-blue-600 founder-quote">
+                        <p class="text-lg sm:text-xl text-gray-700 leading-relaxed italic">
+                            "Después de 17 años en una empresa Fortune 100 gestionando presupuestos de $5M+, me cansé de ver a dueños de pequeños negocios ser estafados por agencias perezosas que tratan sus $2K/mes como cambio de bolsillo. Usted merece la misma calidad de estrategia que tienen las grandes empresas—sin la burocracia corporativa. Por eso contesto mi propio teléfono."
+                        </p>
+                        <div class="mt-6 flex items-center gap-4">
+                            <img src="./images/ricardobrown.png" alt="Ricardo" class="w-12 h-12 rounded-full object-cover border-2 border-blue-600">
+                            <div>
+                                <p class="font-poppins font-bold text-gray-900">Ricardo Gattas-Moras</p>
+                                <p class="text-gray-600 text-sm">Fundador, Poppy Marketing</p>
+                            </div>
+                        </div>
+                    </div>
                     <div class="flex flex-wrap gap-4 pt-4">
-                        <div class="flex items-center gap-2 text-gray-600">
+                        <div class="flex items-center gap-2 text-gray-600 bg-white px-4 py-2 rounded-full shadow-sm">
                             <i class="ph-fill ph-buildings text-blue-600 text-xl"></i>
-                            <span class="font-semibold">17 Años en Fortune 100</span>
+                            <span class="font-semibold text-sm">17 Años Fortune 100</span>
                         </div>
-                        <div class="flex items-center gap-2 text-gray-600">
+                        <div class="flex items-center gap-2 text-gray-600 bg-white px-4 py-2 rounded-full shadow-sm">
                             <i class="ph-fill ph-currency-dollar text-blue-600 text-xl"></i>
-                            <span class="font-semibold">Experiencia con Presupuestos de $5M+</span>
+                            <span class="font-semibold text-sm">Presupuestos de $5M+</span>
                         </div>
-                        <div class="flex items-center gap-2 text-gray-600">
+                        <div class="flex items-center gap-2 text-gray-600 bg-white px-4 py-2 rounded-full shadow-sm">
                             <i class="ph-fill ph-map-pin text-blue-600 text-xl"></i>
-                            <span class="font-semibold">Ubicado en Katy, TX</span>
+                            <span class="font-semibold text-sm">Katy, TX</span>
                         </div>
+                        <a href="tel:+19417774933" class="flex items-center gap-2 text-gray-600 bg-white px-4 py-2 rounded-full shadow-sm hover:bg-green-50 hover:text-green-700 transition-colors cursor-pointer">
+                            <i class="ph-fill ph-phone text-green-600 text-xl"></i>
+                            <span class="font-semibold text-sm">Contesto Mi Teléfono</span>
+                        </a>
                     </div>
                 </div>
             </div>
